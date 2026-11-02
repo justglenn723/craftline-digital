@@ -198,14 +198,14 @@ button:focus-visible {
 .brand-mark {
   width: 38px;
   height: 38px;
-  border-radius: 12px;
-  background: var(--forest);
+  flex-shrink: 0;
+  color: var(--forest);
+}
+.brand-accent {
+  color: var(--moss);
+}
+.footer .brand-accent {
   color: var(--lime);
-  display: grid;
-  place-items: center;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0;
 }
 .nav-links {
   display: flex;
@@ -917,8 +917,7 @@ button:focus-visible {
   color: #fff;
 }
 .footer .brand-mark {
-  background: var(--lime);
-  color: var(--forest);
+  color: #2f5240;
 }
 .footer-inner {
   display: flex;

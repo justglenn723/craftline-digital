@@ -183,11 +183,15 @@ export default function App() {
 
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <nav className="nav container" aria-label="Main">
-          <a href="#top" className="brand" aria-label="Glenn Polia, back to top">
-            <span className="brand-mark" aria-hidden="true">
-              GP
+          <a href="#top" className="brand" aria-label="Craftline Digital, back to top">
+            <svg className="brand-mark" viewBox="0 0 120 120" aria-hidden="true">
+              <rect x="4" y="4" width="112" height="112" rx="28" fill="currentColor" />
+              <path d="M76 31H53C36 31 23 44 23 60s13 29 30 29h23" fill="none" stroke="#F7F7F2" strokeWidth="9" strokeLinecap="round" />
+              <path d="M48 60h48M79 43l17 17-17 17" fill="none" stroke="#C9F36A" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>
+              Craftline <span className="brand-accent">Digital</span>
             </span>
-            Glenn Polia
           </a>
           <ul className="nav-links">
             {NAV.map((n) => (
@@ -450,7 +454,7 @@ export default function App() {
                 find, and promo content that helps you stand out on social media.
               </p>
               <a className="text-link" href={SITE.portfolioUrl} target="_blank" rel="noopener noreferrer">
-                See my full work history and resume
+                See my personal portfolio and resume
                 <ArrowUpRight size={15} aria-hidden="true" />
                 <ExternalHint />
               </a>
@@ -539,10 +543,14 @@ export default function App() {
         <div className="container footer-inner">
           <div>
             <p className="brand">
-              <span className="brand-mark" aria-hidden="true">
-                GP
+              <svg className="brand-mark" viewBox="0 0 120 120" aria-hidden="true">
+              <rect x="4" y="4" width="112" height="112" rx="28" fill="currentColor" />
+              <path d="M76 31H53C36 31 23 44 23 60s13 29 30 29h23" fill="none" stroke="#F7F7F2" strokeWidth="9" strokeLinecap="round" />
+              <path d="M48 60h48M79 43l17 17-17 17" fill="none" stroke="#C9F36A" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+              <span>
+                Craftline <span className="brand-accent">Digital</span>
               </span>
-              Glenn Polia
             </p>
             <p className="footer-desc">{SITE.descriptor}</p>
           </div>

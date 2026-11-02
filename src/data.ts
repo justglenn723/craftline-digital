@@ -2,7 +2,7 @@
 // Prices are "starting at" amounts in Philippine pesos.
 
 export const SITE = {
-  name: "Glenn Polia",
+  name: "Craftline Digital",
   descriptor: "Websites, video editing, and graphic design for local businesses",
   portfolioUrl: "https://glennpolia.vercel.app/"
 };
@@ -150,6 +150,15 @@ export interface WorkItem {
 
 export const WORK: WorkItem[] = [
   {
+    id: "glennpolia-portfolio",
+    title: "Personal Portfolio Website",
+    kind: "Website",
+    description: "My own portfolio site with a project gallery, resume download, animated demos, and mobile layout. Built with React and live on Vercel.",
+    imageUrl: "/assets/work/glennpolia-portfolio.png",
+    previewUrl: "https://glennpolia.vercel.app/",
+    previewLabel: "Visit Site"
+  },
+  {
     id: "cafe-concept",
     title: "Local Café Website",
     kind: "Website",
@@ -183,6 +192,24 @@ export const WORK: WorkItem[] = [
     description: "A media kit page presenting a content creator duo to brands and builders looking for partnerships.",
     imageUrl: "/assets/funnels/ruben-arthur-partnership.png",
     previewUrl: "https://app.gohighlevel.com/v2/preview/T7r63z5lkenUyB7ZqSSq?notrack=true",
+    previewLabel: "View Page"
+  },
+  {
+    id: "burn-bright",
+    title: "Burn Bright Pro",
+    kind: "Website",
+    description: "A landing page for an Instagram marketing app that explains the product and moves visitors toward signing up.",
+    imageUrl: "/assets/funnels/burn-bright-pro-ig.png",
+    previewUrl: "https://app.gohighlevel.com/v2/preview/4Kldl6gfh04SWEOXoLm8?notrack=true",
+    previewLabel: "View Page"
+  },
+  {
+    id: "glp1-clinic",
+    title: "GLP-1 Weight Loss Clinic",
+    kind: "Website",
+    description: "A landing page for a medical weight loss program, structured to get visitors to book a consultation.",
+    imageUrl: "/assets/funnels/glp1-demo-clinic.png",
+    previewUrl: "https://app.gohighlevel.com/v2/preview/7W6Ieb6PAlZJ4UOelx4T",
     previewLabel: "View Page"
   },
   {
