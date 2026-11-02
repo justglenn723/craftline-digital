@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kapehan sa Kanto | Concept Demo by Glenn Polia</title>
+  <meta name="description" content="A concept demo of a one-page café website, built by Glenn Polia to show the Starter Page package. Not a real business." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cream:#fbf6ee;--bean:#3b2418;--caramel:#c8823c;--latte:#ead9c2;--muted:#7a6352}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--bean);line-height:1.6}
+    a{color:inherit}
+    .demo-bar{background:#1d3327;color:#f7f7f2;font-size:.82rem;text-align:center;padding:9px 16px}
+    .demo-bar a{color:#c9f36a;font-weight:600}
+    .wrap{width:min(1040px,100% - 40px);margin-inline:auto}
+    header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+    .logo{font-family:Fraunces,serif;font-weight:800;font-size:1.35rem;text-decoration:none}
+    .logo span{color:var(--caramel)}
+    nav a{margin-left:22px;text-decoration:none;font-weight:500;color:var(--muted)}
+    nav a:hover{color:var(--bean)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 70px}
+    .tag{display:inline-block;background:var(--latte);padding:6px 14px;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:16px}
+    h1{font-family:Fraunces,serif;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.04;margin:0 0 16px;letter-spacing:-.02em}
+    h1 em{color:var(--caramel);font-style:normal}
+    .lead{font-size:1.1rem;color:var(--muted);max-width:460px;margin:0 0 26px}
+    .btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:13px 22px;border-radius:100px;font-weight:600;text-decoration:none;transition:transform .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-main{background:var(--bean);color:var(--cream)}
+    .btn-alt{border:1.5px solid var(--bean)}
+    .cup{position:relative;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 45%,#6b3f24 0 38%,#c8823c 39% 44%,#f3e6d3 45% 62%,var(--latte) 63%)}
+    .cup::after{content:"";position:absolute;width:22%;height:30%;right:-6%;top:35%;border:14px solid #f3e6d3;border-left:none;border-radius:0 60px 60px 0}
+    .steam{position:absolute;top:-6%;left:40%;width:20%;height:22%;border-left:4px solid #c9b29a;border-radius:50%;opacity:.6;animation:rise 3s ease-in-out infinite}
+    @keyframes rise{0%{transform:translateY(10px);opacity:0}50%{opacity:.6}100%{transform:translateY(-14px);opacity:0}}
+    section{padding:64px 0}
+    h2{font-family:Fraunces,serif;font-size:2.2rem;margin:0 0 8px}
+    .sub{color:var(--muted);margin:0 0 30px}
+    .menu{background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .item{border:1px solid var(--latte);border-radius:18px;padding:22px}
+    .item h3{margin:0 0 4px;font-size:1.08rem;display:flex;justify-content:space-between;gap:10px}
+    .item h3 span{color:var(--caramel)}
+    .item p{margin:0;color:var(--muted);font-size:.92rem}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .card{background:#fff;border-radius:22px;padding:28px;border:1px solid var(--latte)}
+    .card h3{margin:0 0 12px}
+    .card ul{list-style:none;padding:0;margin:0}
+    .card li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--latte)}
+    footer{background:var(--bean);color:var(--latte);text-align:center;padding:28px 16px;font-size:.88rem}
+    footer a{color:#fff}
+    @media(max-width:760px){
+      nav{display:none}
+      .hero,.visit{grid-template-columns:1fr}
+      .cup{width:70%;margin:0 auto;order:-1}
+      .grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){.steam{animation:none}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Concept demo by Glenn Polia showing the Starter Page package. Not a real business. <a href="/">Back to Glenn Polia</a></div>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#top">Kapehan <span>sa Kanto</span></a>
+      <nav aria-label="Café sections"><a href="#menu">Menu</a><a href="#visit">Visit Us</a></nav>
+    </header>
+    <main id="top">
+      <div class="hero">
+        <div>
+          <span class="tag">Neighborhood café · Open daily</span>
+          <h1>Good coffee, <em>right around the corner.</em></h1>
+          <p class="lead">Freshly brewed local coffee, homemade pastries, and a quiet corner to work or catch up with friends.</p>
+          <div class="btns">
+            <a class="btn btn-main" href="#menu">See the Menu</a>
+            <a class="btn btn-alt" href="#visit">Hours &amp; Location</a>
+          </div>
+        </div>
+        <div class="cup" role="img" aria-label="Illustration of a cup of coffee"><span class="steam"></span></div>
+      </div>
+    </main>
+  </div>
+  <section id="menu" class="menu">
+    <div class="wrap">
+      <h2>Menu</h2>
+      <p class="sub">A few favorites. Prices are sample values for this demo.</p>
+      <div class="grid">
+        <div class="item"><h3>Spanish Latte <span>₱120</span></h3><p>Espresso, milk, and a touch of condensed milk.</p></div>
+        <div class="item"><h3>Iced Americano <span>₱95</span></h3><p>Double shot over ice, smooth and strong.</p></div>
+        <div class="item"><h3>Ube Cheese Pandesal <span>₱45</span></h3><p>Soft, warm, and baked every morning.</p></div>
+        <div class="item"><h3>Matcha Latte <span>₱130</span></h3><p>Creamy matcha with your choice of milk.</p></div>
+        <div class="item"><h3>Banana Bread <span>₱70</span></h3><p>Moist and lightly sweet, perfect with coffee.</p></div>
+        <div class="item"><h3>Hot Chocolate <span>₱100</span></h3><p>Rich tablea chocolate, made the classic way.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="visit">
+    <div class="wrap">
+      <h2>Visit Us</h2>
+      <p class="sub">Sample details for this demo.</p>
+      <div class="visit">
+        <div class="card">
+          <h3>Opening Hours</h3>
+          <ul>
+            <li><span>Monday to Friday</span><span>7:00 AM to 9:00 PM</span></li>
+            <li><span>Saturday</span><span>8:00 AM to 10:00 PM</span></li>
+            <li><span>Sunday</span><span>8:00 AM to 6:00 PM</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Find Us</h3>
+          <p style="margin:0 0 10px">Corner of Sample Street and Demo Avenue, Your City</p>
+          <p style="margin:0;color:var(--muted)">On a real site, this area holds your address, a map link, and your Facebook or phone contact buttons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>Kapehan sa Kanto is a fictional café made for this demo. Website concept by <a href="/">Glenn Polia</a>.</footer>
+</body>
+</html>
