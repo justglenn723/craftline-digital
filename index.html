@@ -7,6 +7,15 @@
     <meta name="description" content="Clear websites, short promo videos, and graphic designs for local businesses. Website packages start at ₱1,000, video editing at ₱500, and graphics at ₱250." />
     <meta name="theme-color" content="#1D3327" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Apply the saved or system color theme before the page paints.
+      (function () {
+        var t;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Craftline Digital | Websites and Creative Content for Local Businesses" />

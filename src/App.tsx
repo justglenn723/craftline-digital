@@ -14,8 +14,11 @@ import {
   GraduationCap,
   Briefcase,
   Wrench,
-  UserRound
+  UserRound,
+  Sun,
+  Moon
 } from "lucide-react";
+import VideoGallery from "./VideoGallery";
 import { SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
 
 const peso = (n: number) => `₱${n.toLocaleString("en-PH")}`;
@@ -160,6 +163,18 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [filter, setFilter] = useState<(typeof WORK_FILTERS)[number]>("All");
+  const [theme, setTheme] = useState<"light" | "dark">(() =>
+    document.documentElement.dataset.theme === "dark" ? "dark" : "light"
+  );
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -203,11 +218,20 @@ export default function App() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="btn btn-dark nav-cta">
-            Discuss a Project
-            <ArrowRight size={16} aria-hidden="true" />
-          </a>
-          <button
+          <div className="nav-actions">
+            <button
+              className="theme-btn"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              title={theme === "dark" ? "Light mode" : "Dark mode"}
+            >
+              {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
+            </button>
+            <a href="#contact" className="btn btn-dark nav-cta">
+              Discuss a Project
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <button
             className="menu-btn"
             onClick={() => setMenuOpen((o) => !o)}
             aria-expanded={menuOpen}
@@ -216,6 +240,7 @@ export default function App() {
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
+          </div>
         </nav>
         <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`} hidden={!menuOpen}>
           {NAV.map((n) => (
@@ -376,6 +401,7 @@ export default function App() {
                 <WorkCard key={`${filter}-${w.id}`} item={w} delay={(i % 3) * 0.08} />
               ))}
             </div>
+            {(filter === "All" || filter === "Video") && <VideoGallery />}
           </div>
         </section>
 
@@ -403,7 +429,7 @@ export default function App() {
             <SectionHead
               eyebrow="Starting Prices"
               title="Clear starting prices"
-              sub="Website packages, plus video editing and graphic design as separate services."
+              sub="Website packages, plus VA portfolio websites, video editing, and graphic design as separate services."
             />
             <h3 className="pricing-label">Website packages</h3>
             <div className="pricing-grid">
