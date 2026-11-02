@@ -13,13 +13,16 @@ import {
   X,
   GraduationCap,
   Briefcase,
-  Wrench
+  Wrench,
+  UserRound
 } from "lucide-react";
 import { SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
 
 const peso = (n: number) => `₱${n.toLocaleString("en-PH")}`;
 
-const SERVICE_ICONS: Record<ServiceId, any> = { web: Monitor, video: Clapperboard, design: Palette };
+const SERVICE_ICONS: Record<ServiceId, any> = { web: Monitor, va: UserRound, video: Clapperboard, design: Palette };
+
+const priceText = (n?: number) => (n === undefined ? "Price on request" : `from ${peso(n)}`);
 
 const NAV = [
   { href: "#services", label: "Services" },
@@ -30,7 +33,7 @@ const NAV = [
   { href: "#contact", label: "Contact" }
 ];
 
-const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "Video", "Graphic Design"];
+const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Video", "Graphic Design"];
 
 /* Fades content in once it scrolls into view. `delay` staggers items in a grid. */
 function Reveal({
@@ -237,7 +240,7 @@ export default function App() {
               </h1>
               <p className="hero-sub">
                 I help local businesses present their services online with clear websites, promotional videos, and
-                graphic designs.
+                graphic designs. I also build portfolio websites for aspiring virtual assistants.
               </p>
               <div className="hero-actions">
                 <a href="#contact" className="btn btn-dark">
@@ -256,7 +259,7 @@ export default function App() {
                       <Icon size={16} aria-hidden="true" />
                       <span>
                         {s.title}
-                        <small>from {peso(s.startingAt)}</small>
+                        <small>{priceText(s.startingAt)}</small>
                       </span>
                     </li>
                   );
@@ -266,8 +269,24 @@ export default function App() {
 
             <div className="hero-visual">
               <div className="hero-blob" aria-hidden="true" />
-              <div className="portrait">
-                <img src="/glenn-hero.jpg" alt="Portrait of Glenn Polia" />
+              <div className="mock-browser" aria-hidden="true">
+                <div className="mock-bar">
+                  <span />
+                  <span />
+                  <span />
+                  <em>yourbusiness.ph</em>
+                </div>
+                <div className="mock-page">
+                  <p className="mock-tag">Your business</p>
+                  <p className="mock-title">A better first impression starts here.</p>
+                  <p className="mock-text">A clear website helps customers understand what you do and how to reach you.</p>
+                  <span className="mock-btn">Contact us</span>
+                  <div className="mock-tiles">
+                    <span className="t1" />
+                    <span className="t2" />
+                    <span className="t3" />
+                  </div>
+                </div>
               </div>
               <div className="float-card float-a" aria-hidden="true">
                 <span className="float-icon">
@@ -296,8 +315,8 @@ export default function App() {
           <div className="container">
             <SectionHead
               eyebrow="Services"
-              title="Three ways I can help your business"
-              sub="Each service is priced on its own, so you only pay for what you need."
+              title="How I can help"
+              sub="Websites for local businesses, portfolio sites for aspiring VAs, and promo content. Each service is priced on its own."
             />
             <div className="services-grid">
               {SERVICES.map((s, i) => {
@@ -318,10 +337,16 @@ export default function App() {
                       ))}
                     </ul>
                     <a href="#pricing" className="service-price">
-                      <span>
-                        Starting at <strong>{peso(s.startingAt)}</strong>
-                        {s.unit && <small> {s.unit}</small>}
-                      </span>
+                      {s.startingAt === undefined ? (
+                        <span>
+                          <strong>Price on request</strong>
+                        </span>
+                      ) : (
+                        <span>
+                          Starting at <strong>{peso(s.startingAt)}</strong>
+                          {s.unit && <small> {s.unit}</small>}
+                        </span>
+                      )}
                       <ArrowRight size={16} aria-hidden="true" />
                     </a>
                   </Reveal>
@@ -337,7 +362,7 @@ export default function App() {
             <SectionHead
               eyebrow="Selected Work"
               title="Samples of my work"
-              sub="Websites, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
+              sub="Websites, VA portfolios, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
             />
             <div className="filters" role="group" aria-label="Filter work by type">
               {WORK_FILTERS.map((f) => (
@@ -405,7 +430,7 @@ export default function App() {
               ))}
             </div>
 
-            <h3 className="pricing-label">Creative services (priced separately)</h3>
+            <h3 className="pricing-label">Other services (priced separately)</h3>
             <div className="creative-grid">
               {creative.map((s, i) => {
                 const Icon = SERVICE_ICONS[s.id];
@@ -417,12 +442,20 @@ export default function App() {
                     <div>
                       <h4>{s.title}</h4>
                       <p>
-                        Starting at <strong>{peso(s.startingAt)}</strong> {s.unit}
+                        {s.startingAt === undefined ? (
+                          <strong>Price on request</strong>
+                        ) : (
+                          <>
+                            Starting at <strong>{peso(s.startingAt)}</strong> {s.unit}
+                          </>
+                        )}
                       </p>
                       <p className="creative-note">
-                        {s.id === "video"
-                          ? "Based on a short video of up to about 30 seconds. Footage, length, format, music, and revisions are confirmed per project."
-                          : "Multiple sizes, bulk requests, complex designs, and rush work are quoted separately."}
+                        {s.id === "va"
+                          ? "A personal portfolio site for aspiring virtual assistants. Send me your resume and samples and I'll give you a quote."
+                          : s.id === "video"
+                            ? "Based on a short video of up to about 30 seconds. Footage, length, format, music, and revisions are confirmed per project."
+                            : "Multiple sizes, bulk requests, complex designs, and rush work are quoted separately."}
                       </p>
                     </div>
                   </Reveal>

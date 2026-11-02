@@ -15,14 +15,15 @@ export const CONTACT = {
   messenger: "https://www.facebook.com/glenn.polia7?mibextid=ZbWKwL"
 };
 
-export type ServiceId = "web" | "video" | "design";
+export type ServiceId = "web" | "va" | "video" | "design";
 
 export interface Service {
   id: ServiceId;
   title: string;
   summary: string;
   items: string[];
-  startingAt: number;
+  // Leave startingAt out to show "Price on request" until a price is set.
+  startingAt?: number;
   unit?: string;
 }
 
@@ -39,6 +40,18 @@ export const SERVICES: Service[] = [
       "Basic on-page SEO setup (higher packages)"
     ],
     startingAt: 1000
+  },
+  {
+    id: "va",
+    title: "VA Portfolio Websites",
+    summary: "A personal portfolio site for aspiring virtual assistants, so clients can see your skills, samples, and resume in one link.",
+    items: [
+      "About you, your skills, and the services you offer",
+      "Work samples and the tools you use",
+      "Resume download and contact buttons",
+      "Mobile-friendly layout",
+      "Your own shareable link for job applications"
+    ]
   },
   {
     id: "video",
@@ -122,7 +135,7 @@ export const PRICING_NOTES = [
   "All prices are starting prices. Your final quote depends on scope, how ready your content is, complexity, and any third-party requirements.",
   "Domain, hosting, paid tools, and third-party subscriptions are separate where applicable.",
   "Extra pages, custom features, payment or booking systems, and major redesigns are quoted separately.",
-  "Video editing and graphic design are priced separately from website packages and do not include ad spend, stock assets, or paid music.",
+  "VA portfolio websites, video editing, and graphic design are priced separately from website packages. Creative prices do not include ad spend, stock assets, or paid music.",
   "Ongoing support can be discussed based on your needs."
 ];
 
@@ -133,7 +146,7 @@ export const PROCESS = [
   { title: "Review and Deliver", text: "I apply the agreed revisions, hand over the final files, and we talk about any ongoing support separately." }
 ];
 
-export type WorkKind = "Website" | "Video" | "Graphic Design";
+export type WorkKind = "Website" | "VA Portfolio" | "Video" | "Graphic Design";
 
 export interface WorkItem {
   id: string;
@@ -151,11 +164,29 @@ export interface WorkItem {
 export const WORK: WorkItem[] = [
   {
     id: "glennpolia-portfolio",
-    title: "Personal Portfolio Website",
-    kind: "Website",
-    description: "My own portfolio site with a project gallery, resume download, animated demos, and mobile layout. Built with React and live on Vercel.",
+    title: "Glenn Polia Portfolio",
+    kind: "VA Portfolio",
+    description: "My own portfolio site with a project gallery, resume download, interactive demos, and a mobile layout.",
     imageUrl: "/assets/work/glennpolia-portfolio.png",
     previewUrl: "https://glennpolia.vercel.app/",
+    previewLabel: "Visit Site"
+  },
+  {
+    id: "markcastillon-portfolio",
+    title: "Mark Castillon Portfolio",
+    kind: "VA Portfolio",
+    description: "A portfolio for an Information Systems graduate and creative technologist, with an interactive skills map, work samples, experience, and a resume.",
+    imageUrl: "/assets/work/markcastillon-portfolio.png",
+    previewUrl: "https://markcastillon-portfolio.vercel.app/",
+    previewLabel: "Visit Site"
+  },
+  {
+    id: "jeffybanez-portfolio",
+    title: "Jeff Ybanez Portfolio",
+    kind: "VA Portfolio",
+    description: "A portfolio for a full-stack virtual assistant, with services, tools, project samples, and WhatsApp contact buttons.",
+    imageUrl: "/assets/work/jeffybanez-portfolio.png",
+    previewUrl: "https://www.jeffybanez.site/",
     previewLabel: "Visit Site"
   },
   {

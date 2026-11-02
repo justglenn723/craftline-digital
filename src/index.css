@@ -342,8 +342,9 @@ button:focus-visible {
   list-style: none;
   padding: 0;
   margin: 36px 0 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 520px;
   gap: 10px;
   animation: rise 0.8s ease 0.3s both;
 }
@@ -381,20 +382,105 @@ button:focus-visible {
   border-radius: 40px;
   transform: rotate(5deg);
 }
-.portrait {
+.mock-browser {
   position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 32px;
-  overflow: hidden;
-  background: var(--forest);
-  border: 6px solid var(--surface);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 26px;
   box-shadow: var(--shadow);
+  overflow: hidden;
+  transform: rotate(-2deg);
 }
-.portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
+.mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.mock-bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.mock-bar em {
+  margin-left: 10px;
+  flex: 1;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--paper);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+.mock-page {
+  padding: 28px 26px 26px;
+  background: linear-gradient(180deg, #f4f8ec 0%, var(--surface) 70%);
+}
+.mock-tag {
+  display: inline-block;
+  margin: 0 0 12px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lime-ink);
+  background: var(--lime);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.mock-title {
+  margin: 0 0 10px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.mock-text {
+  margin: 0 0 16px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.mock-btn {
+  display: inline-block;
+  background: var(--forest);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 100px;
+}
+.mock-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+.mock-tiles span {
+  height: 74px;
+  border-radius: 14px;
+  animation: tile 4s ease-in-out infinite;
+}
+.mock-tiles .t1 {
+  background: var(--lime);
+}
+.mock-tiles .t2 {
+  background: var(--lavender);
+  animation-delay: -1.3s;
+}
+.mock-tiles .t3 {
+  background: var(--peach);
+  animation-delay: -2.6s;
+}
+@keyframes tile {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 .float-card {
   position: absolute;
@@ -427,19 +513,19 @@ button:focus-visible {
   flex-shrink: 0;
 }
 .float-a {
-  top: 14%;
-  left: -18%;
+  bottom: 9%;
+  left: -14%;
 }
 .float-b {
-  bottom: 10%;
-  right: -14%;
+  top: -6%;
+  right: -10%;
   animation-delay: -3s;
 }
 
 /* ── Services ── */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 .service-card {
@@ -472,6 +558,10 @@ button:focus-visible {
 .svc-video .service-icon {
   background: var(--lavender);
   color: #5b4bb7;
+}
+.svc-va .service-icon {
+  background: var(--sky);
+  color: #2f63a8;
 }
 .svc-design .service-icon {
   background: var(--peach);
@@ -760,7 +850,7 @@ button:focus-visible {
 }
 .creative-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .creative-card {
@@ -993,7 +1083,8 @@ button:focus-visible {
   }
   .services-grid,
   .work-grid,
-  .pricing-grid {
+  .pricing-grid,
+  .creative-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .process-grid {
@@ -1003,7 +1094,7 @@ button:focus-visible {
     display: none;
   }
   .float-a {
-    left: -8%;
+    left: -6%;
   }
   .float-b {
     right: -6%;
@@ -1076,18 +1167,18 @@ button:focus-visible {
     height: 28px;
   }
   .float-a {
-    top: 56%;
-    left: -10%;
+    bottom: 5%;
+    left: -6%;
   }
   .float-b {
-    bottom: 4%;
-    right: -8%;
+    top: -5%;
+    right: -6%;
   }
   .hero-actions .btn {
     flex: 1 1 auto;
   }
-  .hero-services li {
-    flex: 1 1 100%;
+  .hero-services {
+    grid-template-columns: 1fr;
   }
   .creative-card {
     flex-direction: column;
