@@ -556,7 +556,7 @@ button:focus-visible {
 /* ── Services ── */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .service-card {
@@ -593,6 +593,14 @@ button:focus-visible {
 .svc-va .service-icon {
   background: var(--sky);
   color: #2f63a8;
+}
+.svc-invite .service-icon {
+  background: #f8e1e4;
+  color: #a33a52;
+}
+[data-theme="dark"] .svc-invite .service-icon {
+  background: #3d2228;
+  color: #f2a7b5;
 }
 .svc-design .service-icon {
   background: var(--peach);
@@ -881,7 +889,7 @@ button:focus-visible {
 }
 .creative-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .creative-card {

@@ -16,14 +16,15 @@ import {
   Wrench,
   UserRound,
   Sun,
-  Moon
+  Moon,
+  Heart
 } from "lucide-react";
 import VideoGallery from "./VideoGallery";
 import { SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
 
 const peso = (n: number) => `₱${n.toLocaleString("en-PH")}`;
 
-const SERVICE_ICONS: Record<ServiceId, any> = { web: Monitor, va: UserRound, video: Clapperboard, design: Palette };
+const SERVICE_ICONS: Record<ServiceId, any> = { web: Monitor, va: UserRound, invite: Heart, video: Clapperboard, design: Palette };
 
 const priceText = (n?: number) => (n === undefined ? "Price on request" : `from ${peso(n)}`);
 
@@ -36,7 +37,7 @@ const NAV = [
   { href: "#contact", label: "Contact" }
 ];
 
-const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Video", "Graphic Design"];
+const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Invitation", "Video", "Graphic Design"];
 
 /* Fades content in once it scrolls into view. `delay` staggers items in a grid. */
 function Reveal({
@@ -265,7 +266,7 @@ export default function App() {
               </h1>
               <p className="hero-sub">
                 I help local businesses present their services online with clear websites, promotional videos, and
-                graphic designs. I also build portfolio websites for aspiring virtual assistants.
+                graphic designs. I also build portfolio websites for aspiring virtual assistants and digital wedding invitations.
               </p>
               <div className="hero-actions">
                 <a href="#contact" className="btn btn-dark">
@@ -341,7 +342,7 @@ export default function App() {
             <SectionHead
               eyebrow="Services"
               title="How I can help"
-              sub="Websites for local businesses, portfolio sites for aspiring VAs, and promo content. Each service is priced on its own."
+              sub="Websites for local businesses, portfolio sites for aspiring VAs, wedding invitations, and promo content. Each service is priced on its own."
             />
             <div className="services-grid">
               {SERVICES.map((s, i) => {
@@ -387,7 +388,7 @@ export default function App() {
             <SectionHead
               eyebrow="Selected Work"
               title="Samples of my work"
-              sub="Websites, VA portfolios, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
+              sub="Websites, VA portfolios, wedding invitations, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
             />
             <div className="filters" role="group" aria-label="Filter work by type">
               {WORK_FILTERS.map((f) => (
@@ -429,7 +430,7 @@ export default function App() {
             <SectionHead
               eyebrow="Starting Prices"
               title="Clear starting prices"
-              sub="Website packages, plus VA portfolio websites, video editing, and graphic design as separate services."
+              sub="Website packages, plus VA portfolio websites, wedding invitations, video editing, and graphic design as separate services."
             />
             <h3 className="pricing-label">Website packages</h3>
             <div className="pricing-grid">
@@ -479,6 +480,8 @@ export default function App() {
                       <p className="creative-note">
                         {s.id === "va"
                           ? "A personal portfolio site for aspiring virtual assistants. Send me your resume and samples and I'll give you a quote."
+                          : s.id === "invite"
+                            ? "Send me your names, date, venue, and colors, and I'll give you a quote. Changes to the details are easy to make before the day."
                           : s.id === "video"
                             ? "Based on a short video of up to about 30 seconds. Footage, length, format, music, and revisions are confirmed per project."
                             : "Multiple sizes, bulk requests, complex designs, and rush work are quoted separately."}

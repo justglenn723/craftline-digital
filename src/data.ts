@@ -15,7 +15,7 @@ export const CONTACT = {
   messenger: "https://www.facebook.com/glenn.polia7?mibextid=ZbWKwL"
 };
 
-export type ServiceId = "web" | "va" | "video" | "design";
+export type ServiceId = "web" | "va" | "invite" | "video" | "design";
 
 export interface Service {
   id: ServiceId;
@@ -51,6 +51,18 @@ export const SERVICES: Service[] = [
       "Resume download and contact buttons",
       "Mobile-friendly layout",
       "Your own shareable link for job applications"
+    ]
+  },
+  {
+    id: "invite",
+    title: "Digital Wedding Invitations",
+    summary: "An invitation website your guests open on their phones, with an animated opening and every detail of the day in one link.",
+    items: [
+      "Animated opening, like a ribbon, envelope, or wax seal",
+      "Names, date, venue, and countdown to the day",
+      "Google Maps location and save-the-date button",
+      "Program or flow of the day",
+      "Designed in your wedding colors, with one link to share"
     ]
   },
   {
@@ -135,7 +147,7 @@ export const PRICING_NOTES = [
   "All prices are starting prices. Your final quote depends on scope, how ready your content is, complexity, and any third-party requirements.",
   "Domain, hosting, paid tools, and third-party subscriptions are separate where applicable.",
   "Extra pages, custom features, payment or booking systems, and major redesigns are quoted separately.",
-  "VA portfolio websites, video editing, and graphic design are priced separately from website packages. Creative prices do not include ad spend, stock assets, or paid music.",
+  "VA portfolio websites, wedding invitations, video editing, and graphic design are priced separately from website packages. Creative prices do not include ad spend, stock assets, or paid music.",
   "Ongoing support can be discussed based on your needs."
 ];
 
@@ -146,7 +158,7 @@ export const PROCESS = [
   { title: "Review and Deliver", text: "I apply the agreed revisions, hand over the final files, and we talk about any ongoing support separately." }
 ];
 
-export type WorkKind = "Website" | "VA Portfolio" | "Video" | "Graphic Design";
+export type WorkKind = "Website" | "VA Portfolio" | "Invitation" | "Video" | "Graphic Design";
 
 export interface WorkItem {
   id: string;
@@ -162,6 +174,24 @@ export interface WorkItem {
 }
 
 export const WORK: WorkItem[] = [
+  {
+    id: "nikah-invitation",
+    title: "Nikah Invitation",
+    kind: "Invitation",
+    description: "A botanical Nikah invitation in burgundy and old rose. Guests untie a ribbon to open it, then see the couple's details, a countdown, the map, and the flow of the ceremony.",
+    imageUrl: "/assets/work/invite-nikah.jpg",
+    previewUrl: "https://ournikahday.vercel.app/",
+    previewLabel: "Open Invitation"
+  },
+  {
+    id: "wedding-invitation",
+    title: "Wedding Invitation",
+    kind: "Invitation",
+    description: "A minimalist ivory and champagne wedding invitation. Guests break a wax seal to open the envelope, then see the countdown, venue map, and flow of the celebration.",
+    imageUrl: "/assets/work/invite-wedding.jpg",
+    previewUrl: "https://ourweddingday2026.vercel.app/",
+    previewLabel: "Open Invitation"
+  },
   {
     id: "glennpolia-portfolio",
     title: "Glenn Polia Portfolio",
