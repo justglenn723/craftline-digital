@@ -158,6 +158,19 @@ export const PROCESS = [
   { title: "Review and Deliver", text: "I apply the agreed revisions, hand over the final files, and we talk about any ongoing support separately." }
 ];
 
+export const REVIEWS = [
+  {
+    image: "/assets/reviews/review-1.jpg",
+    quote: "Hanggaaandaaa po, thank you so muchhh!",
+    project: "Nikah invitation client"
+  },
+  {
+    image: "/assets/reviews/review-2.jpg",
+    quote: "Nicely done po, thank you so much.",
+    project: "Wedding invitation client"
+  }
+];
+
 export type WorkKind = "Website" | "VA Portfolio" | "Invitation" | "Video" | "Graphic Design";
 
 export interface WorkItem {
@@ -178,19 +191,19 @@ export const WORK: WorkItem[] = [
     id: "nikah-invitation",
     title: "Nikah Invitation",
     kind: "Invitation",
-    description: "A botanical Nikah invitation in burgundy and old rose. Guests untie a ribbon to open it, then see the couple's details, a countdown, the map, and the flow of the ceremony.",
+    description: "A botanical Nikah invitation in burgundy and old rose. Guests untie a ribbon to open it, then see the families, entourage, countdown, map, and flow of the ceremony. Shown with sample names to protect the couple's privacy.",
     imageUrl: "/assets/work/invite-nikah.jpg",
-    previewUrl: "https://ournikahday.vercel.app/",
-    previewLabel: "Open Invitation"
+    previewUrl: "/demos/nikah/",
+    previewLabel: "Open Sample"
   },
   {
     id: "wedding-invitation",
     title: "Wedding Invitation",
     kind: "Invitation",
-    description: "A minimalist ivory and champagne wedding invitation. Guests break a wax seal to open the envelope, then see the countdown, venue map, and flow of the celebration.",
+    description: "A minimalist ivory and champagne wedding invitation with music. Guests break a wax seal to open the envelope, then see the countdown, venue map, color palette, flow, and gift details. Shown with sample names to protect the couple's privacy.",
     imageUrl: "/assets/work/invite-wedding.jpg",
-    previewUrl: "https://ourweddingday2026.vercel.app/",
-    previewLabel: "Open Invitation"
+    previewUrl: "/demos/wedding/",
+    previewLabel: "Open Sample"
   },
   {
     id: "glennpolia-portfolio",

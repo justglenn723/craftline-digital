@@ -20,7 +20,7 @@ import {
   Heart
 } from "lucide-react";
 import VideoGallery from "./VideoGallery";
-import { SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
+import { REVIEWS, SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
 
 const peso = (n: number) => `₱${n.toLocaleString("en-PH")}`;
 
@@ -33,11 +33,14 @@ const NAV = [
   { href: "#work", label: "Work" },
   { href: "#process", label: "Process" },
   { href: "#pricing", label: "Pricing" },
+  { href: "#reviews", label: "Reviews" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" }
 ];
 
 const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Invitation", "Video", "Graphic Design"];
+const FILTER_ICONS: Record<string, any> = { All: Check, Website: Monitor, "VA Portfolio": UserRound, Invitation: Heart, Video: Clapperboard, "Graphic Design": Palette };
+const SERVICE_TO_KIND: Record<ServiceId, WorkKind> = { web: "Website", va: "VA Portfolio", invite: "Invitation", video: "Video", design: "Graphic Design" };
 
 /* Fades content in once it scrolls into view. `delay` staggers items in a grid. */
 function Reveal({
@@ -193,6 +196,11 @@ export default function App() {
 
   const visibleWork = filter === "All" ? WORK : WORK.filter((w) => w.kind === filter);
   const creative = SERVICES.filter((s) => s.id !== "web");
+
+  const showWork = (kind: WorkKind) => {
+    setFilter(kind);
+    document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -375,6 +383,10 @@ export default function App() {
                       )}
                       <ArrowRight size={16} aria-hidden="true" />
                     </a>
+                    <button type="button" className="see-examples" onClick={() => showWork(SERVICE_TO_KIND[s.id])}>
+                      See {s.title.toLowerCase()} examples
+                      <ArrowRight size={15} aria-hidden="true" />
+                    </button>
                   </Reveal>
                 );
               })}
@@ -390,12 +402,19 @@ export default function App() {
               title="Samples of my work"
               sub="Websites, VA portfolios, wedding invitations, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
             />
+            <p className="filters-label">Choose a category</p>
             <div className="filters" role="group" aria-label="Filter work by type">
-              {WORK_FILTERS.map((f) => (
-                <button key={f} className={`filter ${filter === f ? "is-active" : ""}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>
-                  {f}
-                </button>
-              ))}
+              {WORK_FILTERS.map((f) => {
+                const Icon = FILTER_ICONS[f];
+                const count = f === "All" ? WORK.length : WORK.filter((w) => w.kind === f).length;
+                return (
+                  <button key={f} className={`filter ${filter === f ? "is-active" : ""}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                    <Icon size={18} aria-hidden="true" />
+                    <span>{f}</span>
+                    <span className="filter-count">{count}</span>
+                  </button>
+                );
+              })}
             </div>
             <div className="work-grid">
               {visibleWork.map((w, i) => (
@@ -497,6 +516,25 @@ export default function App() {
                 <li key={n}>{n}</li>
               ))}
             </Reveal>
+          </div>
+        </section>
+
+        {/* ── REVIEWS ── */}
+        <section id="reviews" className="section section-tint">
+          <div className="container">
+            <SectionHead eyebrow="Client Reviews" title="What clients said" sub="Real messages from clients. Names and photos are blurred for their privacy." />
+            <div className="reviews-grid">
+              {REVIEWS.map((r, i) => (
+                <Reveal as="figure" key={r.image} className="review-card" delay={i * 0.1}>
+                  <img src={r.image} alt={`Message from a client: ${r.quote}`} loading="lazy" />
+                  <figcaption>
+                    <span className="review-stars" aria-hidden="true">★★★★★</span>
+                    <q>{r.quote}</q>
+                    <span className="review-who">{r.project}</span>
+                  </figcaption>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
