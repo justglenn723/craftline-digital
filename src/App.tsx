@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   Check,
   Mail,
-  MessageCircle,
   Phone,
   Menu,
   X,
@@ -20,7 +19,7 @@ import {
   Heart
 } from "lucide-react";
 import VideoGallery from "./VideoGallery";
-import { REVIEWS, SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
+import { REVIEWS, SOCIALS, SITE, CONTACT, SERVICES, WEBSITE_PACKAGES, PRICING_NOTES, PROCESS, WORK, WorkItem, WorkKind, ServiceId } from "./data";
 
 const peso = (n: number) => `₱${n.toLocaleString("en-PH")}`;
 
@@ -162,6 +161,29 @@ const WorkCard: React.FC<{ item: WorkItem; delay: number }> = ({ item, delay }) 
     </Reveal>
   );
 };
+
+function SocialIcon({ id, size = 20 }: { id: string; size?: number }) {
+  const common = { width: size, height: size, viewBox: "0 0 24 24", "aria-hidden": true } as const;
+  if (id === "facebook")
+    return (
+      <svg {...common} fill="currentColor">
+        <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+      </svg>
+    );
+  if (id === "instagram")
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  return (
+    <svg {...common} fill="currentColor">
+      <path d="M16.6 3c.4 2.2 1.7 3.6 3.9 3.8v3a7.4 7.4 0 0 1-3.9-1.2v6.2c0 3.4-2.6 6.2-6.1 6.2A6 6 0 0 1 4.5 15c0-3.6 3.1-6.4 6.9-5.9v3.2a2.8 2.8 0 0 0-3.7 2.7 2.8 2.8 0 0 0 2.9 2.8c1.6 0 2.8-1.2 2.8-3.1V3h3.2z" />
+    </svg>
+  );
+}
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -543,7 +565,7 @@ export default function App() {
           <div className="container about-grid">
             <Reveal className="about-copy">
               <p className="eyebrow">About</p>
-              <h2 className="section-title">Hi, I'm Glenn.</h2>
+              <h2 className="section-title">The person behind Craftline.</h2>
               <p>
                 I'm a BS Information Systems graduate from the Philippines with over two years of remote work for a
                 US-based business. In that time I've built websites and landing pages, made graphics for ads and social
@@ -553,11 +575,6 @@ export default function App() {
                 Now I want to bring that same practical work to local businesses: a clear website your customers can
                 find, and promo content that helps you stand out on social media.
               </p>
-              <a className="text-link" href={SITE.portfolioUrl} target="_blank" rel="noopener noreferrer">
-                See my personal portfolio and resume
-                <ArrowUpRight size={15} aria-hidden="true" />
-                <ExternalHint />
-              </a>
             </Reveal>
             <Reveal className="about-facts" delay={0.1}>
               <div className="fact">
@@ -621,18 +638,18 @@ export default function App() {
                     <ExternalHint />
                   </a>
                 )}
-                {CONTACT.messenger && (
-                  <a className="channel" href={CONTACT.messenger} target="_blank" rel="noopener noreferrer">
+                {SOCIALS.map((s) => (
+                  <a key={s.id} className="channel" href={s.url} target="_blank" rel="noopener noreferrer">
                     <span className="channel-icon">
-                      <MessageCircle size={20} aria-hidden="true" />
+                      <SocialIcon id={s.id} />
                     </span>
                     <span>
-                      <small>Messenger</small>
-                      Message me on Facebook
+                      <small>{s.label}</small>
+                      {s.handle}
                     </span>
                     <ExternalHint />
                   </a>
-                )}
+                ))}
               </div>
             </Reveal>
           </div>
@@ -653,6 +670,13 @@ export default function App() {
               </span>
             </p>
             <p className="footer-desc">{SITE.descriptor}</p>
+            <div className="footer-socials">
+              {SOCIALS.map((s) => (
+                <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`Craftline Digital on ${s.label} (opens in a new tab)`}>
+                  <SocialIcon id={s.id} size={18} />
+                </a>
+              ))}
+            </div>
           </div>
           <nav aria-label="Footer">
             <ul className="footer-links">

@@ -3,17 +3,22 @@
 
 export const SITE = {
   name: "Craftline Digital",
-  descriptor: "Websites, video editing, and graphic design for local businesses",
-  portfolioUrl: "https://glennpolia.vercel.app/"
+  descriptor: "Websites, video editing, and graphic design for local businesses"
 };
 
 // Leave a channel's value empty ("") to hide it everywhere on the site.
 export const CONTACT = {
   email: "glennpolia9@gmail.com",
   whatsapp: "https://wa.me/639388589282",
-  whatsappDisplay: "+63 938 858 9282",
-  messenger: "https://www.facebook.com/glenn.polia7?mibextid=ZbWKwL"
+  whatsappDisplay: "+63 938 858 9282"
 };
+
+// Craftline Digital social pages
+export const SOCIALS = [
+  { id: "facebook", label: "Facebook", handle: "Craftline Digital", url: "https://www.facebook.com/share/1BihV2Gg46/" },
+  { id: "instagram", label: "Instagram", handle: "@craftline_digital", url: "https://www.instagram.com/craftline_digital/" },
+  { id: "tiktok", label: "TikTok", handle: "@craftline_digital", url: "https://www.tiktok.com/@craftline_digital" }
+] as const;
 
 export type ServiceId = "web" | "va" | "invite" | "video" | "design";
 
@@ -206,11 +211,11 @@ export const WORK: WorkItem[] = [
     previewLabel: "Open Sample"
   },
   {
-    id: "glennpolia-portfolio",
-    title: "Glenn Polia Portfolio",
+    id: "ghl-portfolio",
+    title: "GHL Specialist Portfolio",
     kind: "VA Portfolio",
-    description: "My own portfolio site with a project gallery, resume download, interactive demos, and a mobile layout.",
-    imageUrl: "/assets/work/glennpolia-portfolio.png",
+    description: "A portfolio for a GoHighLevel specialist and virtual assistant, with a project gallery, resume download, interactive demos, and a mobile layout.",
+    imageUrl: "/assets/work/ghl-portfolio.png",
     previewUrl: "https://glennpolia.vercel.app/",
     previewLabel: "Visit Site"
   },
