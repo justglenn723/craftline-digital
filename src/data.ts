@@ -60,15 +60,17 @@ export const SERVICES: Service[] = [
   },
   {
     id: "invite",
-    title: "Digital Wedding Invitations",
-    summary: "An invitation website your guests open on their phones, with an animated opening and every detail of the day in one link.",
+    title: "Digital Invitations",
+    summary: "An invitation website for weddings, christenings, birthdays, or any occasion. Your guests open it on their phones, with an animated opening and every detail of the day in one link.",
     items: [
       "Animated opening, like a ribbon, envelope, or wax seal",
       "Names, date, venue, and countdown to the day",
       "Google Maps location and save-the-date button",
       "Program or flow of the day",
-      "Designed in your wedding colors, with one link to share"
-    ]
+      "Designed in your event colors, with one link to share"
+    ],
+    startingAt: 500,
+    unit: "per invitation"
   },
   {
     id: "video",
@@ -152,7 +154,7 @@ export const PRICING_NOTES = [
   "All prices are starting prices. Your final quote depends on scope, how ready your content is, complexity, and any third-party requirements.",
   "Domain, hosting, paid tools, and third-party subscriptions are separate where applicable.",
   "Extra pages, custom features, payment or booking systems, and major redesigns are quoted separately.",
-  "VA portfolio websites, wedding invitations, video editing, and graphic design are priced separately from website packages. Creative prices do not include ad spend, stock assets, or paid music.",
+  "VA portfolio websites, digital invitations, video editing, and graphic design are priced separately from website packages. Creative prices do not include ad spend, stock assets, or paid music.",
   "Ongoing support can be discussed based on your needs."
 ];
 

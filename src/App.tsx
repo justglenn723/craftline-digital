@@ -296,7 +296,7 @@ export default function App() {
               </h1>
               <p className="hero-sub">
                 I help local businesses present their services online with clear websites, promotional videos, and
-                graphic designs. I also build portfolio websites for aspiring virtual assistants and digital wedding invitations.
+                graphic designs. I also build portfolio websites for aspiring virtual assistants and digital invitations for weddings, christenings, birthdays, and any occasion.
               </p>
               <div className="hero-actions">
                 <a href="#contact" className="btn btn-dark">
@@ -372,7 +372,7 @@ export default function App() {
             <SectionHead
               eyebrow="Services"
               title="How I can help"
-              sub="Websites for local businesses, portfolio sites for aspiring VAs, wedding invitations, and promo content. Each service is priced on its own."
+              sub="Websites for local businesses, portfolio sites for aspiring VAs, invitations for any occasion, and promo content. Each service is priced on its own."
             />
             <div className="services-grid">
               {SERVICES.map((s, i) => {
@@ -422,7 +422,7 @@ export default function App() {
             <SectionHead
               eyebrow="Selected Work"
               title="Samples of my work"
-              sub="Websites, VA portfolios, wedding invitations, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
+              sub="Websites, VA portfolios, invitations, videos, and graphics I've made. Anything marked “Concept Project” is a demo I built to show what a package can look like, not a client project."
             />
             <p className="filters-label">Choose a category</p>
             <div className="filters" role="group" aria-label="Filter work by type">
@@ -471,7 +471,7 @@ export default function App() {
             <SectionHead
               eyebrow="Starting Prices"
               title="Clear starting prices"
-              sub="Website packages, plus VA portfolio websites, wedding invitations, video editing, and graphic design as separate services."
+              sub="Website packages, plus VA portfolio websites, digital invitations, video editing, and graphic design as separate services."
             />
             <h3 className="pricing-label">Website packages</h3>
             <div className="pricing-grid">
