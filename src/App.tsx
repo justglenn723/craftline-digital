@@ -3,6 +3,7 @@ import {
   Monitor,
   Clapperboard,
   Palette,
+  Code2,
   ArrowRight,
   ArrowUpRight,
   Check,
@@ -37,8 +38,8 @@ const NAV = [
   { href: "#contact", label: "Contact" }
 ];
 
-const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Invitation", "Video", "Graphic Design"];
-const FILTER_ICONS: Record<string, any> = { All: Check, Website: Monitor, "VA Portfolio": UserRound, Invitation: Heart, Video: Clapperboard, "Graphic Design": Palette };
+const WORK_FILTERS: ("All" | WorkKind)[] = ["All", "Website", "VA Portfolio", "Invitation", "Video", "Graphic Design", "Claude Code Projects"];
+const FILTER_ICONS: Record<string, any> = { All: Check, Website: Monitor, "VA Portfolio": UserRound, Invitation: Heart, Video: Clapperboard, "Graphic Design": Palette, "Claude Code Projects": Code2 };
 const SERVICE_TO_KIND: Record<ServiceId, WorkKind> = { web: "Website", va: "VA Portfolio", invite: "Invitation", video: "Video", design: "Graphic Design" };
 
 /* Fades content in once it scrolls into view. `delay` staggers items in a grid. */
@@ -430,7 +431,7 @@ export default function App() {
                 const Icon = FILTER_ICONS[f];
                 const count = f === "All" ? WORK.length : WORK.filter((w) => w.kind === f).length;
                 return (
-                  <button key={f} className={`filter ${filter === f ? "is-active" : ""}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                  <button key={f} className={`filter ${filter === f ? "is-active" : ""} ${f === "Claude Code Projects" ? "filter-wide" : ""}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>
                     <Icon size={18} aria-hidden="true" />
                     <span>{f}</span>
                     <span className="filter-count">{count}</span>

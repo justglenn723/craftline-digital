@@ -178,7 +178,7 @@ export const REVIEWS = [
   }
 ];
 
-export type WorkKind = "Website" | "VA Portfolio" | "Invitation" | "Video" | "Graphic Design";
+export type WorkKind = "Website" | "VA Portfolio" | "Invitation" | "Video" | "Graphic Design" | "Claude Code Projects";
 
 export interface WorkItem {
   id: string;
@@ -194,6 +194,20 @@ export interface WorkItem {
 }
 
 export const WORK: WorkItem[] = [
+  {
+    id: "cc-athlete-website",
+    title: "Youth Athlete Websites",
+    kind: "Claude Code Projects",
+    description: "Built with Claude Code for a sports marketing agency: took the approved design live on GoHighLevel, connected the sign-up forms to the CRM with automatic alerts, and built the parent portal behind it with secure sign-in and private video storage. Client name changed for privacy; mockup shown with sample data.",
+    imageUrl: "/assets/work/cc-athlete-website.png"
+  },
+  {
+    id: "cc-athlete-app",
+    title: "Athlete Parent App (iPhone + Android)",
+    kind: "Claude Code Projects",
+    description: "Built with Claude Code: turned the parent portal into a native iPhone and Android app with sign-in that stays saved, game recording, 1080p live streaming and video uploads. Set up the automated build pipeline, then published it to Google Play testing and iPhone TestFlight. Client name changed for privacy; mockup shown with sample data.",
+    imageUrl: "/assets/work/cc-athlete-app.png"
+  },
   {
     id: "nikah-invitation",
     title: "Nikah Invitation",
